@@ -1,6 +1,7 @@
 # Load required packages --------------------------------------------
 library(ISLR)
 library(purrr)
+library(tidyverse)
 
 # Exercise 9 --------------------------------------------------------
 
@@ -62,6 +63,21 @@ map(Auto_subset[, 1:7], range)
 # (e) Using the full data set, investigate the predictors graphically, using 
 # scatterplots or other tools of your choice. Create some plots highlighting the
 # relationships among the predictors. Comment on your findings.
+
+# There is an inverse relationship between mpg and displacement (with higher 
+# displacement for a greater number of cylinders)
+ggplot(data = Auto, mapping = aes(x = displacement, y = mpg)) +
+  geom_point(mapping = aes(colour = factor(cylinders))) +
+  geom_smooth()
+
+# horsepower and weight are positively correlated
+ggplot(data = Auto, aes(x = horsepower, y = weight)) +
+  geom_point(aes(colour = year)) +
+  geom_smooth()
+
+# There is one outlier with high horsepower for a lower weight
+Auto %>% 
+  filter(weight < 3500 & horsepower > 200)
 
 # (f) Suppose that we wish to predict gas mileage (mpg) on the basis of the other 
 # variables. Do your plots suggest that any of the other variables might be useful
