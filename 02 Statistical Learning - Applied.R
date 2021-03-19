@@ -120,40 +120,34 @@ Boston
 
 # (b) Make some pairwise scatterplots of the predictors (columns) in this data set.
 # Describe your findings.
-pairs(Boston[, c(1:5, 14)])
-pairs(Boston[, c(6:9, 14)])
-pairs(Boston[, c(10:13, 14)])
+pairs(Boston)
 
-# There appears to be a positive relationship between medv (median value of owner-
-# occupied homes in $1000s) and rm (average number of rooms per dwelling) and 
-# dis (weighted mean of distances to five Boston employment centres).
+# Correlations:-
 
-ggplot(Boston, aes(x = rm, y = medv)) +
-  geom_point()
+# medv (median value of owner-occupied homes in $1000s)
+# - zn (proportion of residential land owned for lots over 25,000 sq.ft.)
+# - rm (average number of rooms per dwelling)
+# - dis (weighted mean of distances to five Boston employment centres).
+# - indus (proportion of residential land zoned for lots over 25,000 sq.ft.)
+# - nox (nitrogen oxide concentration)
+# - lstat (lower status of the population).
 
-ggplot(Boston, aes(x = dis, y = medv)) +
-  geom_point()
+# lstat
+# - zn
+# - indus
+# - nox
+# - rm
+# - age (proportion of owner-occupied units built prior to 1940)
 
-# There appears to be an inverse relationship between medv and nox (nitrogen oxide 
-# concentration) and lstat(lower status of the population). 
+# dis (weighted mean of distances to five Boston employment centres)
+# - zn
+# - indus
+# - nox
+# - rm
+# - age
 
-ggplot(Boston, aes(x = nox, y = medv)) +
-  geom_point()
-
-ggplot(Boston, aes(x = lstat, y = medv)) +
-  geom_point()
-
-# Other relationships appear to be between nox and indus (proportion of residential
-# land zoned for lots over 25,000 sq.ft.), nox and dis, and lstat and rm.
-
-ggplot(Boston, aes(x = nox, y = indus)) +
-  geom_point()
-
-ggplot(Boston, aes(x = nox, y = dis)) +
-  geom_point()
-
-ggplot(Boston, aes(x = rm, y = lstat)) +
-  geom_point()
+# age
+# - nox
 
 # (c) Are any of the predictors associated with per capita crime rate? If so, 
 # explain the relationship.

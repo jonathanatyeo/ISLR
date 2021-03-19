@@ -19,7 +19,7 @@ of observations n is small.
 non-linear.  
 **A flexible method will fit the non-linear relationship closer than an inflexible method**  
 
-(d) The variance of the error terms, i.e. $σ^2^ = Var()$, is extremely
+(d) The variance of the error terms, i.e. $σ^2 = Var()$, is extremely
 high.  
 **A flexible method will try to fit the error term so a more inflexible method will be better in this case**  
 
@@ -52,31 +52,43 @@ and the % change in the German market.
 Make sure to label each one.  
 (b) Explain why each of the five curves has the shape displayed in
 part (a).
-* **(squared) bias: decreases exponentially as flexibility increases. Less flexible methods are simpler than more flexible methods and therefore result in higher bias.**
-* **variance: increases exponentially as flexibility increases. Any changes to the training data is likeley to have a larger impact on a more flexibile method.** 
-* **training error: decreases as flexibility increases as a more flexible method will be a closer fit to the training dataset.**
-* **test error: will decrease will flexibility to a point and will then increase as the additional flexibility overfits the training data.**
-* **Bayes (irreducible) error: straight horizontal line.**
++ **(squared) bias: decreases exponentially as flexibility increases. Less flexible methods are simpler than more flexible methods and therefore result in higher bias.**
++ **variance: increases exponentially as flexibility increases. Any changes to the training data is likeley to have a larger impact on a more flexibile method.** 
++ **training error: decreases as flexibility increases as a more flexible method will be a closer fit to the training dataset.**
++ **test error: will decrease will flexibility to a point and will then increase as the additional flexibility overfits the training data.**
++ **Bayes (irreducible) error: straight horizontal line.**
 
-4. You will now think of some real-life applications for statistical learning.
+4. You will now think of some real-life applications for statistical learning.  
 (a) Describe three real-life applications in which classification might
 be useful. Describe the response, as well as the predictors. Is the
 goal of each application inference or prediction? Explain your
 answer.
++ **Cancer: the response could be a cancer yes/no while the predictors could be demographics or habits. The goal is inference as we would like to understand the relationship between the population demographic/habits and cancer rates.**  
++ **
+
 (b) Describe three real-life applications in which regression might
 be useful. Describe the response, as well as the predictors. Is the
 goal of each application inference or prediction? Explain your
 answer.
+
+
 (c) Describe three real-life applications in which cluster analysis
 might be useful.
 
 5. What are the advantages and disadvantages of a very flexible (versus
 a less flexible) approach for regression or classification? Under what
 circumstances might a more flexible approach be preferred to a less
-flexible approach? When might a less flexible approach be preferred?
+flexible approach? When might a less flexible approach be preferred?  
+**The advantage of a very flexible approach is the ability to more closely fit the data and therefore improve predictability. However for a highly flexible model the predictions may be less accurate than a less flexible model due to overfitting.  
+A more flexible approach is preferred when predictability is important and we are not interested in the interpretability of our model.  
+A less flexibile approach is preferred when we are interested in the interpretability of the model.**
 
 6. Describe the differences between a parametric and a non-parametric
 statistical learning approach. What are the advantages of a parametric approach to regression or classification (as opposed to a nonparametric approach)? What are its disadvantages?
+**A parametric approach reduces the problem of estimating f to a set of parameters that can describe the functional form of f.  
+A non-parametric approach do not make explicit assumptions about the functional form of f but instead seek an estimate of f that gets as close to the data points as possible.  
+The advantage of a parametric approach is they reduce the problem of estimating f to a small number of parameters and so a lower number of observations are required to make an accurate estimate of f.   
+The disadvantage of a parametric approach is the chosen model will not usually match the true form of f and, depending on the quality of model fit, may result in poor estimates of f.**
 
 7. The table below provides a training data set containing six observations, three predictors, and one qualitative response variable.  
 
@@ -95,10 +107,10 @@ X1 = X2 = X3 = 0 using K-nearest neighbors.
 the test point, X1 = X2 = X3 = 0.  
 **Obs1: $\sqrt{0^2 + 3^2 + 0^2} = 3$**  
 **Obs2: $\sqrt{2^2 + 0^2 + 0^2} = 2$**  
-**Obs3: $\sqrt{0^2 + 1^2 + 3^2} = \sqrt{10} = 3.16**  
-**Obs4: $\sqrt{0^2 + 1^2 + 2^2} = \sqrt{5} = 2.24**  
-**Obs5: $\sqrt{(-1)^2 + 0^2 + 1^2} = \sqrt{2} = 1.41**  
-**Obs6: $\sqrt{1^2 + 1^2 + 1^2} = \sqrt{3} = 1.73**  
+**Obs3: $\sqrt{0^2 + 1^2 + 3^2} = \sqrt{10} = 3.16$**  
+**Obs4: $\sqrt{0^2 + 1^2 + 2^2} = \sqrt{5} = 2.24$**  
+**Obs5: $\sqrt{(-1)^2 + 0^2 + 1^2} = \sqrt{2} = 1.41$**  
+**Obs6: $\sqrt{1^2 + 1^2 + 1^2} = \sqrt{3} = 1.73$**  
 
 (b) What is our prediction with K = 1? Why?
 **Green: Obs 5 (Green) is the nearest to X1 = X2 = X3 = 0.**
@@ -108,28 +120,3 @@ the test point, X1 = X2 = X3 = 0.
 
 (d) If the Bayes decision boundary in this problem is highly nonlinear, then would we expect the best value for K to be large or small? Why?  
 **We would expect the best value for K to be small. A smaller value of K is a more flexible method which will be a better fit to the highly nonlinear Bayes decision boundary.**
-
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
